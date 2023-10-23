@@ -1,0 +1,16 @@
+on: push
+name: 🚀 Deploy TodoApp-Server
+jobs:
+  web-deploy:
+    name: 🎉 Deploy TodoApp-Server
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: ${{ secrets.FTP_TODOAPP_SERVER_URL }}
+        username: ${{ secrets.FTP_TODOAPP_SERVER_USER }}
+        password: ${{ secrets.FTP_TODOAPP_SERVER_PASS }}
