@@ -32,10 +32,8 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        $userid = 15;
         $todo = Todo::create(
             [
-                'user_id' => $userid,
                 'title' => $request->title,
                 'description' => $request->description,
                 'done' => false,
