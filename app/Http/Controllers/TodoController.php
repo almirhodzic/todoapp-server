@@ -36,7 +36,6 @@ class TodoController extends Controller
         $todo = Todo::create(
             [
                 'user_id' => $userid,
-                'list_id' => 1,
                 'title' => $request->title,
                 'description' => $request->description,
                 'done' => false,
