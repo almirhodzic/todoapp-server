@@ -44,7 +44,7 @@ class TodoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
         //
     }
@@ -52,7 +52,7 @@ class TodoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(int $id)
     {
         //
     }
@@ -60,14 +60,14 @@ class TodoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Todo $todo, string $id)
+    public function update(Request $request, Todo $todo, int $id)
     {
         $todo = Todo::find($id);
         $todo->update($request->only('title', 'description','done'));
         return response($todo, Response::HTTP_ACCEPTED);
     }
 
-    public function toggle(Request $request, Todo $todo, string $id)
+    public function toggle(Request $request, Todo $todo, int $id)
     {
         $todo = Todo::find($id);
         $donevalue;
@@ -86,7 +86,7 @@ class TodoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function delete(Todo $todo, string $id)
+    public function delete(Todo $todo, int $id)
     {
         $todo = Todo::find($id);
         $todo->delete();
